@@ -77,7 +77,7 @@
             this.RequestListBox.FormattingEnabled = true;
             this.RequestListBox.Location          = new System.Drawing.Point(482, 53);
             this.RequestListBox.Name              = "RequestListBox";
-            this.RequestListBox.Size              = new System.Drawing.Size(306, 381);
+            this.RequestListBox.Size              = new System.Drawing.Size(205, 381);
             this.RequestListBox.TabIndex          = 2;
             // 
             // label1
@@ -99,14 +99,14 @@
             // JournalListBox
             // 
             this.JournalListBox.FormattingEnabled = true;
-            this.JournalListBox.Location          = new System.Drawing.Point(809, 53);
+            this.JournalListBox.Location          = new System.Drawing.Point(708, 53);
             this.JournalListBox.Name              = "JournalListBox";
-            this.JournalListBox.Size              = new System.Drawing.Size(179, 381);
+            this.JournalListBox.Size              = new System.Drawing.Size(280, 381);
             this.JournalListBox.TabIndex          = 5;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(809, 33);
+            this.label3.Location = new System.Drawing.Point(708, 33);
             this.label3.Name     = "label3";
             this.label3.Size     = new System.Drawing.Size(179, 20);
             this.label3.TabIndex = 6;

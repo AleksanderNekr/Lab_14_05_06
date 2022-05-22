@@ -37,6 +37,7 @@ namespace Lab_14_05_06
 
         private void CreateMainCollectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this._factory.Clear();
             for (var workshopIndex = 0; workshopIndex < WorkshopsCount; workshopIndex++)
             {
                 var persons = new List<Person>();
