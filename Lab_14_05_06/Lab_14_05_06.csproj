@@ -34,7 +34,7 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="InputMethodsForm">
-          <HintPath>..\..\InputMethodsForm\bin\Debug\InputMethodsForm.exe</HintPath>
+          <HintPath>..\..\InputMethodsForm\bin\Debug\InputMethodsForm.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
