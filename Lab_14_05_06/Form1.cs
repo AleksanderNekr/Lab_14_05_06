@@ -57,6 +57,7 @@ namespace Lab_14_05_06
             }
 
             this.PrintFactoryToListBox();
+            this.JournalListBox.Items.Add("Успешно создана главная коллекция");
         }
 
         private void WorkersNamesOfWorkshopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,16 +70,23 @@ namespace Lab_14_05_06
             }
 
             int workshopNumber = InputForm.ReadInt("номер цеха", IsCorrectNumber);
+            if (this.GetLastMessage() == InputForm.CancelMessage)
+            {
+                return;
+            }
+
             this.PrintToRequestListBox(GetWorkersNamesByNumber(workers, workshopNumber));
+            this.JournalListBox.Items.Add("Успешно выведены имена рабочих в цехе №" + workshopNumber);
+        }
+
+        private string GetLastMessage()
+        {
+            return (string)this.JournalListBox.Items[this.JournalListBox.Items.Count - 1];
         }
 
         private void OnInputFormOnGetMessage(object o, ResultMessageEventArgs args)
         {
             this.JournalListBox.Items.Add(args.Message);
-            if (args.Message == InputForm.CancelMessage)
-            {
-                InputForm.Close();
-            }
         }
 
         private List<Worker> GetWorkers()
