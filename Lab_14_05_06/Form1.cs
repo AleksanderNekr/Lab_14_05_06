@@ -7,15 +7,16 @@ using WorkersLib;
 
 namespace Lab_14_05_06
 {
-    internal sealed partial class IsCorrectWorkshopNumber : Form
+    internal sealed partial class Form1 : Form
     {
         private       Queue<List<Person>> _factory       = new Queue<List<Person>>();
         private const int                 WorkshopsCount = 10;
         private const int                 PeopleCount    = 5;
 
-        internal IsCorrectWorkshopNumber()
+        internal Form1()
         {
             this.InitializeComponent();
+            InputForm.GetMessage += this.OnInputFormOnGetMessage;
         }
 
         private void PrintFactoryToListBox()
@@ -68,12 +69,16 @@ namespace Lab_14_05_06
             }
 
             int workshopNumber = InputForm.ReadInt("номер цеха", IsCorrectNumber);
-            if (InputForm.OutMessage == InputForm.CancelMessage)
-            {
-                return;
-            }
-
             this.PrintToRequestListBox(GetWorkersNamesByNumber(workers, workshopNumber));
+        }
+
+        private void OnInputFormOnGetMessage(object o, ResultMessageEventArgs args)
+        {
+            this.JournalListBox.Items.Add(args.Message);
+            if (args.Message == InputForm.CancelMessage)
+            {
+                InputForm.Close();
+            }
         }
 
         private List<Worker> GetWorkers()

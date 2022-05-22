@@ -1,6 +1,6 @@
 ﻿namespace Lab_14_05_06
 {
-    internal sealed partial class IsCorrectWorkshopNumber
+    internal sealed partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -36,6 +36,8 @@
             this.RequestListBox                          = new System.Windows.Forms.ListBox();
             this.label1                                  = new System.Windows.Forms.Label();
             this.label2                                  = new System.Windows.Forms.Label();
+            this.JournalListBox                          = new System.Windows.Forms.ListBox();
+            this.label3                                  = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.WorkersNamesOfWorkshopToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name     = "menuStrip1";
-            this.menuStrip1.Size     = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size     = new System.Drawing.Size(1000, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text     = "menuStrip1";
             // 
@@ -94,24 +96,45 @@
             this.label2.TabIndex = 4;
             this.label2.Text     = "Результат запроса";
             // 
-            // IsCorrectWorkshopNumber
+            // JournalListBox
+            // 
+            this.JournalListBox.FormattingEnabled = true;
+            this.JournalListBox.Location          = new System.Drawing.Point(809, 53);
+            this.JournalListBox.Name              = "JournalListBox";
+            this.JournalListBox.Size              = new System.Drawing.Size(179, 381);
+            this.JournalListBox.TabIndex          = 5;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(809, 33);
+            this.label3.Name     = "label3";
+            this.label3.Size     = new System.Drawing.Size(179, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text     = "Журнал событий";
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize          = new System.Drawing.Size(800, 450);
+            this.ClientSize          = new System.Drawing.Size(1000, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.JournalListBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RequestListBox);
             this.Controls.Add(this.ListBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name          = "IsCorrectWorkshopNumber";
+            this.Name          = "Form1";
             this.Text          = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ListBox JournalListBox;
+        private System.Windows.Forms.Label   label3;
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

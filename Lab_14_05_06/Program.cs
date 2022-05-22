@@ -13,7 +13,7 @@ namespace Lab_14_05_06
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IsCorrectWorkshopNumber());
+            Application.Run(new Form1());
         }
     }
 }

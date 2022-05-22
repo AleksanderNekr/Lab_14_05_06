@@ -33,9 +33,6 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="InputMethodsForm">
-          <HintPath>..\..\InputMethodsForm\bin\Debug\InputMethodsForm.dll</HintPath>
-        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Xml.Linq" />
@@ -84,6 +81,12 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="App.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\InputMethodsForm\InputMethodsForm.csproj">
+        <Project>{6c127512-4765-444e-94b2-b99a2f9a71a5}</Project>
+        <Name>InputMethodsForm</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
