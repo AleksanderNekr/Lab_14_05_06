@@ -29,24 +29,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1                              = new System.Windows.Forms.MenuStrip();
-            this.CreateMainCollectionToolStripMenuItem   = new System.Windows.Forms.ToolStripMenuItem();
-            this.WorkersNamesOfWorkshopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListBox                                 = new System.Windows.Forms.ListBox();
-            this.RequestListBox                          = new System.Windows.Forms.ListBox();
-            this.label1                                  = new System.Windows.Forms.Label();
-            this.label2                                  = new System.Windows.Forms.Label();
-            this.JournalListBox                          = new System.Windows.Forms.ListBox();
-            this.label3                                  = new System.Windows.Forms.Label();
+            this.menuStrip1                                    = new System.Windows.Forms.MenuStrip();
+            this.CreateMainCollectionToolStripMenuItem         = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkersNamesOfWorkshopToolStripMenuItem       = new System.Windows.Forms.ToolStripMenuItem();
+            this.EngineersCountWithMinWorkExpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListBox                                       = new System.Windows.Forms.ListBox();
+            this.RequestListBox                                = new System.Windows.Forms.ListBox();
+            this.label1                                        = new System.Windows.Forms.Label();
+            this.label2                                        = new System.Windows.Forms.Label();
+            this.JournalListBox                                = new System.Windows.Forms.ListBox();
+            this.label3                                        = new System.Windows.Forms.Label();
+            this.AverageWorkerSalaryToolStripMenuItem          = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.WorkersNamesOfWorkshopToolStripMenuItem });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.WorkersNamesOfWorkshopToolStripMenuItem, this.EngineersCountWithMinWorkExpToolStripMenuItem, this.AverageWorkerSalaryToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name     = "menuStrip1";
-            this.menuStrip1.Size     = new System.Drawing.Size(1000, 24);
+            this.menuStrip1.Size     = new System.Drawing.Size(1151, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text     = "menuStrip1";
             // 
@@ -64,21 +66,30 @@
             this.WorkersNamesOfWorkshopToolStripMenuItem.Text  =  "Имена рабочих заданного цеха";
             this.WorkersNamesOfWorkshopToolStripMenuItem.Click += new System.EventHandler(this.WorkersNamesOfWorkshopToolStripMenuItem_Click);
             // 
+            // EngineersCountWithMinWorkExpToolStripMenuItem
+            // 
+            this.EngineersCountWithMinWorkExpToolStripMenuItem.Name  =  "EngineersCountWithMinWorkExpToolStripMenuItem";
+            this.EngineersCountWithMinWorkExpToolStripMenuItem.Size  =  new System.Drawing.Size(321, 20);
+            this.EngineersCountWithMinWorkExpToolStripMenuItem.Text  =  "Количество инженеров со стажем не менее заданного";
+            this.EngineersCountWithMinWorkExpToolStripMenuItem.Click += new System.EventHandler(this.EngineersCountWithMinWorkExpToolStripMenuItem_Click);
+            // 
             // ListBox
             // 
-            this.ListBox.FormattingEnabled = true;
-            this.ListBox.Location          = new System.Drawing.Point(12, 53);
-            this.ListBox.Name              = "ListBox";
-            this.ListBox.Size              = new System.Drawing.Size(450, 381);
-            this.ListBox.TabIndex          = 1;
+            this.ListBox.FormattingEnabled   = true;
+            this.ListBox.HorizontalScrollbar = true;
+            this.ListBox.Location            = new System.Drawing.Point(12, 53);
+            this.ListBox.Name                = "ListBox";
+            this.ListBox.Size                = new System.Drawing.Size(450, 381);
+            this.ListBox.TabIndex            = 1;
             // 
             // RequestListBox
             // 
-            this.RequestListBox.FormattingEnabled = true;
-            this.RequestListBox.Location          = new System.Drawing.Point(482, 53);
-            this.RequestListBox.Name              = "RequestListBox";
-            this.RequestListBox.Size              = new System.Drawing.Size(205, 381);
-            this.RequestListBox.TabIndex          = 2;
+            this.RequestListBox.FormattingEnabled   = true;
+            this.RequestListBox.HorizontalScrollbar = true;
+            this.RequestListBox.Location            = new System.Drawing.Point(482, 53);
+            this.RequestListBox.Name                = "RequestListBox";
+            this.RequestListBox.Size                = new System.Drawing.Size(205, 381);
+            this.RequestListBox.TabIndex            = 2;
             // 
             // label1
             // 
@@ -98,11 +109,12 @@
             // 
             // JournalListBox
             // 
-            this.JournalListBox.FormattingEnabled = true;
-            this.JournalListBox.Location          = new System.Drawing.Point(708, 53);
-            this.JournalListBox.Name              = "JournalListBox";
-            this.JournalListBox.Size              = new System.Drawing.Size(280, 381);
-            this.JournalListBox.TabIndex          = 5;
+            this.JournalListBox.FormattingEnabled   = true;
+            this.JournalListBox.HorizontalScrollbar = true;
+            this.JournalListBox.Location            = new System.Drawing.Point(708, 53);
+            this.JournalListBox.Name                = "JournalListBox";
+            this.JournalListBox.Size                = new System.Drawing.Size(431, 381);
+            this.JournalListBox.TabIndex            = 5;
             // 
             // label3
             // 
@@ -112,11 +124,18 @@
             this.label3.TabIndex = 6;
             this.label3.Text     = "Журнал событий";
             // 
+            // AverageWorkerSalaryToolStripMenuItem
+            // 
+            this.AverageWorkerSalaryToolStripMenuItem.Name  =  "AverageWorkerSalaryToolStripMenuItem";
+            this.AverageWorkerSalaryToolStripMenuItem.Size  =  new System.Drawing.Size(194, 20);
+            this.AverageWorkerSalaryToolStripMenuItem.Text  =  "Средняя зарплата всех рабочих";
+            this.AverageWorkerSalaryToolStripMenuItem.Click += new System.EventHandler(this.AverageWorkerSalaryToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize          = new System.Drawing.Size(1000, 450);
+            this.ClientSize          = new System.Drawing.Size(1151, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.JournalListBox);
             this.Controls.Add(this.label2);
@@ -132,6 +151,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem AverageWorkerSalaryToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem EngineersCountWithMinWorkExpToolStripMenuItem;
 
         private System.Windows.Forms.ListBox JournalListBox;
         private System.Windows.Forms.Label   label3;

@@ -80,19 +80,43 @@ namespace Lab_14_05_06
             this.JournalListBox.Items.Add("Успешно выведены имена рабочих в цехе №" + workshopNumber);
         }
 
+        private void EngineersCountWithMinWorkExpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool ExperienceRange(object input)
+            {
+                return ((int)input > 0) && ((int)input <= 40);
+            }
+
+            int                   experience = InputForm.ReadInt("стаж, отсчитываемый от 25 лет", ExperienceRange);
+            IEnumerable<Engineer> engineers  = this._factory.SelectMany(workshop => workshop).OfType<Engineer>();
+            int                   count      = engineers.Count(engineer => (engineer.Age - 25) >= experience);
+            this.PrintToRequestListBox(new List<string> { count + " инженеров в списке" });
+            this.JournalListBox.Items
+                .Add($"Успешно посчитано количество инженеров со стажем не менее {experience} лет!");
+        }
+
+        private void AverageWorkerSalaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double averageSalary = this.GetWorkers().Average(worker => worker.Salary);
+            this.PrintToRequestListBox(new List<string>
+                                       { Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих" });
+            this.JournalListBox.Items.Add("Успешно посчитана средняя зарплата всех рабочих!");
+        }
+
         private string GetLastMessage()
         {
             return (string)this.JournalListBox.Items[this.JournalListBox.Items.Count - 1];
         }
 
-        private void OnInputFormOnGetMessage(object o, ResultMessageEventArgs args)
+        private void OnInputFormOnGetMessage(object sender, ResultMessageEventArgs args)
         {
             this.JournalListBox.Items.Add(args.Message);
         }
 
         private List<Worker> GetWorkers()
         {
-            IEnumerable<Worker> workers = this._factory.SelectMany(workshop => workshop)
+            IEnumerable<Worker> workers = this._factory
+                                              .SelectMany(workshop => workshop)
                                               .OfType<Worker>();
 
             return workers.ToList();
