@@ -33,19 +33,20 @@
             this.CreateMainCollectionToolStripMenuItem         = new System.Windows.Forms.ToolStripMenuItem();
             this.WorkersNamesOfWorkshopToolStripMenuItem       = new System.Windows.Forms.ToolStripMenuItem();
             this.EngineersCountWithMinWorkExpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AverageWorkerSalaryToolStripMenuItem          = new System.Windows.Forms.ToolStripMenuItem();
             this.ListBox                                       = new System.Windows.Forms.ListBox();
             this.RequestListBox                                = new System.Windows.Forms.ListBox();
             this.label1                                        = new System.Windows.Forms.Label();
             this.label2                                        = new System.Windows.Forms.Label();
             this.JournalListBox                                = new System.Windows.Forms.ListBox();
             this.label3                                        = new System.Windows.Forms.Label();
-            this.AverageWorkerSalaryToolStripMenuItem          = new System.Windows.Forms.ToolStripMenuItem();
+            this.GroupByProfessionToolStripMenuItem            = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.WorkersNamesOfWorkshopToolStripMenuItem, this.EngineersCountWithMinWorkExpToolStripMenuItem, this.AverageWorkerSalaryToolStripMenuItem });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.WorkersNamesOfWorkshopToolStripMenuItem, this.EngineersCountWithMinWorkExpToolStripMenuItem, this.AverageWorkerSalaryToolStripMenuItem, this.GroupByProfessionToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name     = "menuStrip1";
             this.menuStrip1.Size     = new System.Drawing.Size(1151, 24);
@@ -69,9 +70,16 @@
             // EngineersCountWithMinWorkExpToolStripMenuItem
             // 
             this.EngineersCountWithMinWorkExpToolStripMenuItem.Name  =  "EngineersCountWithMinWorkExpToolStripMenuItem";
-            this.EngineersCountWithMinWorkExpToolStripMenuItem.Size  =  new System.Drawing.Size(321, 20);
-            this.EngineersCountWithMinWorkExpToolStripMenuItem.Text  =  "Количество инженеров со стажем не менее заданного";
+            this.EngineersCountWithMinWorkExpToolStripMenuItem.Size  =  new System.Drawing.Size(209, 20);
+            this.EngineersCountWithMinWorkExpToolStripMenuItem.Text  =  "Количество инженеров со стажем";
             this.EngineersCountWithMinWorkExpToolStripMenuItem.Click += new System.EventHandler(this.EngineersCountWithMinWorkExpToolStripMenuItem_Click);
+            // 
+            // AverageWorkerSalaryToolStripMenuItem
+            // 
+            this.AverageWorkerSalaryToolStripMenuItem.Name  =  "AverageWorkerSalaryToolStripMenuItem";
+            this.AverageWorkerSalaryToolStripMenuItem.Size  =  new System.Drawing.Size(194, 20);
+            this.AverageWorkerSalaryToolStripMenuItem.Text  =  "Средняя зарплата всех рабочих";
+            this.AverageWorkerSalaryToolStripMenuItem.Click += new System.EventHandler(this.AverageWorkerSalaryToolStripMenuItem_Click);
             // 
             // ListBox
             // 
@@ -124,12 +132,12 @@
             this.label3.TabIndex = 6;
             this.label3.Text     = "Журнал событий";
             // 
-            // AverageWorkerSalaryToolStripMenuItem
+            // GroupByProfessionToolStripMenuItem
             // 
-            this.AverageWorkerSalaryToolStripMenuItem.Name  =  "AverageWorkerSalaryToolStripMenuItem";
-            this.AverageWorkerSalaryToolStripMenuItem.Size  =  new System.Drawing.Size(194, 20);
-            this.AverageWorkerSalaryToolStripMenuItem.Text  =  "Средняя зарплата всех рабочих";
-            this.AverageWorkerSalaryToolStripMenuItem.Click += new System.EventHandler(this.AverageWorkerSalaryToolStripMenuItem_Click);
+            this.GroupByProfessionToolStripMenuItem.Name  =  "GroupByProfessionToolStripMenuItem";
+            this.GroupByProfessionToolStripMenuItem.Size  =  new System.Drawing.Size(212, 20);
+            this.GroupByProfessionToolStripMenuItem.Text  =  "Сгруппировать всех по профессии";
+            this.GroupByProfessionToolStripMenuItem.Click += new System.EventHandler(this.GroupByProfessionToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -151,6 +159,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem GroupByProfessionToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem AverageWorkerSalaryToolStripMenuItem;
 

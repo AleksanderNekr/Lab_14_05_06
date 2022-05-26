@@ -19,22 +19,6 @@ namespace Lab_14_05_06
             InputForm.GetMessage += this.OnInputFormOnGetMessage;
         }
 
-        private void PrintFactoryToListBox()
-        {
-            this.ListBox.Items.Clear();
-            var workshopIndex = 0;
-            foreach (List<Person> workshop in this._factory)
-            {
-                this.ListBox.Items.Add("Цех №" + ++workshopIndex);
-                foreach (Person person in workshop)
-                {
-                    this.ListBox.Items.Add(person);
-                }
-
-                this.ListBox.Items.Add(Environment.NewLine);
-            }
-        }
-
         private void CreateMainCollectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this._factory.Clear();
@@ -63,7 +47,7 @@ namespace Lab_14_05_06
 
         private void WorkersNamesOfWorkshopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<Worker> workers = this.GetWorkers();
+            List<Worker> workers = this.Get<Worker>();
 
             bool IsCorrectNumber(object input)
             {
@@ -97,11 +81,20 @@ namespace Lab_14_05_06
 
         private void AverageWorkerSalaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            double averageSalary = this.GetWorkers().Average(worker => worker.Salary);
+            double averageSalary = this.Get<Worker>().Average(worker => worker.Salary);
             this.PrintToRequestListBox(new List<string>
                                        { Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих" });
             this.JournalListBox.Items.Add("Успешно посчитана средняя зарплата всех рабочих!");
         }
+
+        private void GroupByProfessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IEnumerable<IGrouping<Type, Person>> group   = this.Get<Person>().GroupBy(person => person.GetType());
+            IEnumerable<Person>                  persons = group.SelectMany(pair => pair);
+            this.PrintToRequestListBox(persons);
+        }
+
+        #region Дополнительные методы
 
         private string GetLastMessage()
         {
@@ -113,13 +106,13 @@ namespace Lab_14_05_06
             this.JournalListBox.Items.Add(args.Message);
         }
 
-        private List<Worker> GetWorkers()
+        private List<TProfession> Get<TProfession>() where TProfession : Person
         {
-            IEnumerable<Worker> workers = this._factory
-                                              .SelectMany(workshop => workshop)
-                                              .OfType<Worker>();
+            IEnumerable<TProfession> people = this._factory
+                                                  .SelectMany(workshop => workshop)
+                                                  .OfType<TProfession>();
 
-            return workers.ToList();
+            return people.ToList();
         }
 
         private static IEnumerable<string> GetWorkersNamesByNumber(IEnumerable<Worker> workers, int workshopNumber)
@@ -136,5 +129,23 @@ namespace Lab_14_05_06
                 this.RequestListBox.Items.Add(item);
             }
         }
+
+        private void PrintFactoryToListBox()
+        {
+            this.ListBox.Items.Clear();
+            var workshopIndex = 0;
+            foreach (List<Person> workshop in this._factory)
+            {
+                this.ListBox.Items.Add("Цех №" + ++workshopIndex);
+                foreach (Person person in workshop)
+                {
+                    this.ListBox.Items.Add(person);
+                }
+
+                this.ListBox.Items.Add(Environment.NewLine);
+            }
+        }
+
+        #endregion Дополнительные методы
     }
 }
