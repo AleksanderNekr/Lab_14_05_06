@@ -45,6 +45,8 @@ namespace Lab_14_05_06
 
             this.PrintFactoryToListBox();
             this.JournalListBox.Items.Add("Успешно создана главная коллекция");
+            this.lINQQueriesToolStripMenuItem.Visible          = true;
+            this.lINQExtensionMethodsToolStripMenuItem.Visible = true;
         }
 
         #region LINQ запросы
@@ -274,6 +276,9 @@ namespace Lab_14_05_06
 
             this.PrintMyNewHashTable();
             this.JournalListBox.Items.Add("Успешно создана новая коллекция MyNewHashTable");
+            this.PrintPersonsOnlyToolStripMenuItem.Visible    = true;
+            this.AverageEngineersAgeToolStripMenuItem.Visible = true;
+            this.SortDescByAgeToolStripMenuItem.Visible       = true;
         }
 
         private void PrintPersonsOnlyToolStripMenuItem_Click(object sender, EventArgs e)

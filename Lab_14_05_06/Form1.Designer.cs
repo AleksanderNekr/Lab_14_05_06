@@ -47,13 +47,13 @@ namespace Lab_14_05_06
             this.CreateMyNewCollectionToolStripMenuItem             = new System.Windows.Forms.ToolStripMenuItem();
             this.PrintPersonsOnlyToolStripMenuItem                  = new System.Windows.Forms.ToolStripMenuItem();
             this.AverageEngineersAgeToolStripMenuItem               = new System.Windows.Forms.ToolStripMenuItem();
+            this.SortDescByAgeToolStripMenuItem                     = new System.Windows.Forms.ToolStripMenuItem();
             this.ListBox                                            = new System.Windows.Forms.ListBox();
             this.RequestListBox                                     = new System.Windows.Forms.ListBox();
             this.label1                                             = new System.Windows.Forms.Label();
             this.label2                                             = new System.Windows.Forms.Label();
             this.JournalListBox                                     = new System.Windows.Forms.ListBox();
             this.label3                                             = new System.Windows.Forms.Label();
-            this.SortDescByAgeToolStripMenuItem                     = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,9 +76,10 @@ namespace Lab_14_05_06
             // lINQQueriesToolStripMenuItem
             // 
             this.lINQQueriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.WorkersNamesOfWorkshopQueryToolStripMenuItem, this.EngineersCountWithMinWorkExpQueryToolStripMenuItem, this.AverageWorkerSalaryQueryToolStripMenuItem, this.GroupByProfessionQueryToolStripMenuItem });
-            this.lINQQueriesToolStripMenuItem.Name = "lINQQueriesToolStripMenuItem";
-            this.lINQQueriesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.lINQQueriesToolStripMenuItem.Text = "LINQ запросы";
+            this.lINQQueriesToolStripMenuItem.Name    = "lINQQueriesToolStripMenuItem";
+            this.lINQQueriesToolStripMenuItem.Size    = new System.Drawing.Size(96, 20);
+            this.lINQQueriesToolStripMenuItem.Text    = "LINQ запросы";
+            this.lINQQueriesToolStripMenuItem.Visible = false;
             // 
             // WorkersNamesOfWorkshopQueryToolStripMenuItem
             // 
@@ -111,9 +112,10 @@ namespace Lab_14_05_06
             // lINQExtensionMethodsToolStripMenuItem
             // 
             this.lINQExtensionMethodsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.WorkersNamesOfWorkshopToolStripMenuItem, this.EngineersCountWithMinWorkExpToolStripMenuItem, this.AverageWorkerSalaryToolStripMenuItem, this.GroupByProfessionToolStripMenuItem });
-            this.lINQExtensionMethodsToolStripMenuItem.Name = "lINQExtensionMethodsToolStripMenuItem";
-            this.lINQExtensionMethodsToolStripMenuItem.Size = new System.Drawing.Size(164, 20);
-            this.lINQExtensionMethodsToolStripMenuItem.Text = "LINQ методы расширения";
+            this.lINQExtensionMethodsToolStripMenuItem.Name    = "lINQExtensionMethodsToolStripMenuItem";
+            this.lINQExtensionMethodsToolStripMenuItem.Size    = new System.Drawing.Size(164, 20);
+            this.lINQExtensionMethodsToolStripMenuItem.Text    = "LINQ методы расширения";
+            this.lINQExtensionMethodsToolStripMenuItem.Visible = false;
             // 
             // WorkersNamesOfWorkshopToolStripMenuItem
             // 
@@ -159,17 +161,27 @@ namespace Lab_14_05_06
             // 
             // PrintPersonsOnlyToolStripMenuItem
             // 
-            this.PrintPersonsOnlyToolStripMenuItem.Name  =  "PrintPersonsOnlyToolStripMenuItem";
-            this.PrintPersonsOnlyToolStripMenuItem.Size  =  new System.Drawing.Size(286, 22);
-            this.PrintPersonsOnlyToolStripMenuItem.Text  =  "Вывести имена людей без должности";
-            this.PrintPersonsOnlyToolStripMenuItem.Click += new System.EventHandler(this.PrintPersonsOnlyToolStripMenuItem_Click);
+            this.PrintPersonsOnlyToolStripMenuItem.Name    =  "PrintPersonsOnlyToolStripMenuItem";
+            this.PrintPersonsOnlyToolStripMenuItem.Size    =  new System.Drawing.Size(286, 22);
+            this.PrintPersonsOnlyToolStripMenuItem.Text    =  "Вывести имена людей без должности";
+            this.PrintPersonsOnlyToolStripMenuItem.Visible =  false;
+            this.PrintPersonsOnlyToolStripMenuItem.Click   += new System.EventHandler(this.PrintPersonsOnlyToolStripMenuItem_Click);
             // 
             // AverageEngineersAgeToolStripMenuItem
             // 
-            this.AverageEngineersAgeToolStripMenuItem.Name  =  "AverageEngineersAgeToolStripMenuItem";
-            this.AverageEngineersAgeToolStripMenuItem.Size  =  new System.Drawing.Size(286, 22);
-            this.AverageEngineersAgeToolStripMenuItem.Text  =  "Средний возраст всех инженеров";
-            this.AverageEngineersAgeToolStripMenuItem.Click += new System.EventHandler(this.AverageEngineersAgeToolStripMenuItem_Click);
+            this.AverageEngineersAgeToolStripMenuItem.Name    =  "AverageEngineersAgeToolStripMenuItem";
+            this.AverageEngineersAgeToolStripMenuItem.Size    =  new System.Drawing.Size(286, 22);
+            this.AverageEngineersAgeToolStripMenuItem.Text    =  "Средний возраст всех инженеров";
+            this.AverageEngineersAgeToolStripMenuItem.Visible =  false;
+            this.AverageEngineersAgeToolStripMenuItem.Click   += new System.EventHandler(this.AverageEngineersAgeToolStripMenuItem_Click);
+            // 
+            // SortDescByAgeToolStripMenuItem
+            // 
+            this.SortDescByAgeToolStripMenuItem.Name    =  "SortDescByAgeToolStripMenuItem";
+            this.SortDescByAgeToolStripMenuItem.Size    =  new System.Drawing.Size(286, 22);
+            this.SortDescByAgeToolStripMenuItem.Text    =  "Отсортировать по убыванию возраста";
+            this.SortDescByAgeToolStripMenuItem.Visible =  false;
+            this.SortDescByAgeToolStripMenuItem.Click   += new System.EventHandler(this.SortDescByAgeToolStripMenuItem_Click);
             // 
             // ListBox
             // 
@@ -221,13 +233,6 @@ namespace Lab_14_05_06
             this.label3.Size     = new System.Drawing.Size(179, 20);
             this.label3.TabIndex = 6;
             this.label3.Text     = "События";
-            // 
-            // SortDescByAgeToolStripMenuItem
-            // 
-            this.SortDescByAgeToolStripMenuItem.Name  =  "SortDescByAgeToolStripMenuItem";
-            this.SortDescByAgeToolStripMenuItem.Size  =  new System.Drawing.Size(286, 22);
-            this.SortDescByAgeToolStripMenuItem.Text  =  "Отсортировать по убыванию возраста";
-            this.SortDescByAgeToolStripMenuItem.Click += new System.EventHandler(this.SortDescByAgeToolStripMenuItem_Click);
             // 
             // Form1
             // 
