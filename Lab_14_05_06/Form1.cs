@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using InputMethodsForm;
+using Lab_13_15_05;
 using WorkersLib;
 
 namespace Lab_14_05_06
@@ -248,5 +250,69 @@ namespace Lab_14_05_06
         }
 
         #endregion Дополнительные методы
+
+        #region Расширение MyCollection
+
+        private MyNewHashTable<int, Person> _myNewHashTable;
+
+        private void PrintMyNewHashTable()
+        {
+            this.ListBox.Items.Clear();
+            foreach (KeyValuePair<int, Person> pair in this._myNewHashTable)
+            {
+                this.ListBox.Items.Add(pair.Key + ": " + pair.Value);
+            }
+        }
+
+        private void CreateMyNewCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this._myNewHashTable = new MyNewHashTable<int, Person>();
+            for (var i = 0; i < 30; i++)
+            {
+                this._myNewHashTable.Add(i + 1, Person.GetRandomPerson());
+            }
+
+            this.PrintMyNewHashTable();
+            this.JournalListBox.Items.Add("Успешно создана новая коллекция MyNewHashTable");
+        }
+
+        private void PrintPersonsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.RequestListBox.Items.Clear();
+            MyNewHashTable<int, Person> persons = this._myNewHashTable.Where(pair => pair.Value.IsPersonOnly());
+            foreach (KeyValuePair<int, Person> pair in persons)
+            {
+                this.RequestListBox.Items.Add(pair.Value);
+            }
+
+            this.JournalListBox.Items.Add("Успешно выведены все люди без профессии");
+        }
+
+        private void AverageEngineersAgeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.RequestListBox.Items.Clear();
+            double averageAge = this._myNewHashTable
+                                    .Where(pair => pair.Value is Engineer)
+                                    .Average(pair => pair.Value.Age);
+            this.RequestListBox.Items.Add(Math.Round(averageAge, 2) + " – средний возраст всех инженеров");
+            this.JournalListBox.Items.Add("Успешно выведен средний возраст всех инженеров");
+        }
+
+
+        private void SortDescByAgeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int Comparison(KeyValuePair<int, Person> pair1, KeyValuePair<int, Person> pair2)
+            {
+                return pair1.Value.Age.CompareTo(pair2.Value.Age);
+            }
+
+            List<KeyValuePair<int, Person>> sortedPairs = this._myNewHashTable.SortDescending(Comparison);
+            this.JournalListBox.Items
+                .Add("Успешно отсортирована коллекция MyNewHashTable по возрасту в порядке убывания возраста");
+            this.ListBox.Items.Clear();
+            sortedPairs.ForEach(pair => this.ListBox.Items.Add(pair.Value));
+        }
+
+        #endregion Расширение MyCollection
     }
 }

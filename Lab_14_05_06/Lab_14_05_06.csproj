@@ -33,6 +33,12 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Lab_13_15_05">
+          <HintPath>..\..\Lab_13_15_05\Lab_13_15_05\bin\Debug\Lab_13_15_05.exe</HintPath>
+        </Reference>
+        <Reference Include="MyCollections">
+          <HintPath>..\..\Lab12_10_04_WinForms\MyCollections\bin\Debug\MyCollections.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Xml.Linq" />

@@ -43,18 +43,23 @@ namespace Lab_14_05_06
             this.EngineersCountWithMinWorkExpToolStripMenuItem      = new System.Windows.Forms.ToolStripMenuItem();
             this.AverageWorkerSalaryToolStripMenuItem               = new System.Windows.Forms.ToolStripMenuItem();
             this.GroupByProfessionToolStripMenuItem                 = new System.Windows.Forms.ToolStripMenuItem();
+            this.myNewCollectionToolStripMenuItem                   = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateMyNewCollectionToolStripMenuItem             = new System.Windows.Forms.ToolStripMenuItem();
+            this.PrintPersonsOnlyToolStripMenuItem                  = new System.Windows.Forms.ToolStripMenuItem();
+            this.AverageEngineersAgeToolStripMenuItem               = new System.Windows.Forms.ToolStripMenuItem();
             this.ListBox                                            = new System.Windows.Forms.ListBox();
             this.RequestListBox                                     = new System.Windows.Forms.ListBox();
             this.label1                                             = new System.Windows.Forms.Label();
             this.label2                                             = new System.Windows.Forms.Label();
             this.JournalListBox                                     = new System.Windows.Forms.ListBox();
             this.label3                                             = new System.Windows.Forms.Label();
+            this.SortDescByAgeToolStripMenuItem                     = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.lINQQueriesToolStripMenuItem, this.lINQExtensionMethodsToolStripMenuItem });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.lINQQueriesToolStripMenuItem, this.lINQExtensionMethodsToolStripMenuItem, this.myNewCollectionToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name     = "menuStrip1";
             this.menuStrip1.Size     = new System.Drawing.Size(1003, 24);
@@ -138,6 +143,34 @@ namespace Lab_14_05_06
             this.GroupByProfessionToolStripMenuItem.Text  =  "Сгруппировать всех по профессии";
             this.GroupByProfessionToolStripMenuItem.Click += new System.EventHandler(this.GroupByProfessionToolStripMenuItem_Click);
             // 
+            // myNewCollectionToolStripMenuItem
+            // 
+            this.myNewCollectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMyNewCollectionToolStripMenuItem, this.PrintPersonsOnlyToolStripMenuItem, this.AverageEngineersAgeToolStripMenuItem, this.SortDescByAgeToolStripMenuItem });
+            this.myNewCollectionToolStripMenuItem.Name = "myNewCollectionToolStripMenuItem";
+            this.myNewCollectionToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.myNewCollectionToolStripMenuItem.Text = "MyNewCollection";
+            // 
+            // CreateMyNewCollectionToolStripMenuItem
+            // 
+            this.CreateMyNewCollectionToolStripMenuItem.Name  =  "CreateMyNewCollectionToolStripMenuItem";
+            this.CreateMyNewCollectionToolStripMenuItem.Size  =  new System.Drawing.Size(286, 22);
+            this.CreateMyNewCollectionToolStripMenuItem.Text  =  "Создать";
+            this.CreateMyNewCollectionToolStripMenuItem.Click += new System.EventHandler(this.CreateMyNewCollectionToolStripMenuItem_Click);
+            // 
+            // PrintPersonsOnlyToolStripMenuItem
+            // 
+            this.PrintPersonsOnlyToolStripMenuItem.Name  =  "PrintPersonsOnlyToolStripMenuItem";
+            this.PrintPersonsOnlyToolStripMenuItem.Size  =  new System.Drawing.Size(286, 22);
+            this.PrintPersonsOnlyToolStripMenuItem.Text  =  "Вывести имена людей без должности";
+            this.PrintPersonsOnlyToolStripMenuItem.Click += new System.EventHandler(this.PrintPersonsOnlyToolStripMenuItem_Click);
+            // 
+            // AverageEngineersAgeToolStripMenuItem
+            // 
+            this.AverageEngineersAgeToolStripMenuItem.Name  =  "AverageEngineersAgeToolStripMenuItem";
+            this.AverageEngineersAgeToolStripMenuItem.Size  =  new System.Drawing.Size(286, 22);
+            this.AverageEngineersAgeToolStripMenuItem.Text  =  "Средний возраст всех инженеров";
+            this.AverageEngineersAgeToolStripMenuItem.Click += new System.EventHandler(this.AverageEngineersAgeToolStripMenuItem_Click);
+            // 
             // ListBox
             // 
             this.ListBox.FormattingEnabled   = true;
@@ -189,6 +222,13 @@ namespace Lab_14_05_06
             this.label3.TabIndex = 6;
             this.label3.Text     = "События";
             // 
+            // SortDescByAgeToolStripMenuItem
+            // 
+            this.SortDescByAgeToolStripMenuItem.Name  =  "SortDescByAgeToolStripMenuItem";
+            this.SortDescByAgeToolStripMenuItem.Size  =  new System.Drawing.Size(286, 22);
+            this.SortDescByAgeToolStripMenuItem.Text  =  "Отсортировать по убыванию возраста";
+            this.SortDescByAgeToolStripMenuItem.Click += new System.EventHandler(this.SortDescByAgeToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +249,15 @@ namespace Lab_14_05_06
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem SortDescByAgeToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem AverageEngineersAgeToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem PrintPersonsOnlyToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem myNewCollectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CreateMyNewCollectionToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem WorkersNamesOfWorkshopQueryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EngineersCountWithMinWorkExpQueryToolStripMenuItem;
