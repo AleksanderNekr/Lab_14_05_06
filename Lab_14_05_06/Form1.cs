@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,7 +17,7 @@ namespace Lab_14_05_06
         internal Form1()
         {
             this.InitializeComponent();
-            InputForm.GetMessage += this.OnInputFormOnGetMessage;
+            InputForm.GetMessage += this.AddToJournal_GetMessage;
         }
 
         private void CreateMainCollectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -191,7 +190,7 @@ namespace Lab_14_05_06
             return (string)this.JournalListBox.Items[this.JournalListBox.Items.Count - 1];
         }
 
-        private void OnInputFormOnGetMessage(object sender, ResultMessageEventArgs args)
+        private void AddToJournal_GetMessage(object sender, ResultMessageEventArgs args)
         {
             this.JournalListBox.Items.Add(args.Message);
         }
@@ -319,5 +318,25 @@ namespace Lab_14_05_06
         }
 
         #endregion Расширение MyCollection
+
+        private void lINQQueriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.PrintFactoryToListBox();
+        }
+
+        private void lINQExtensionMethodsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.PrintFactoryToListBox();
+        }
+
+        private void myNewCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this._myNewHashTable == null)
+            {
+                return;
+            }
+
+            this.PrintMyNewHashTable();
+        }
     }
 }

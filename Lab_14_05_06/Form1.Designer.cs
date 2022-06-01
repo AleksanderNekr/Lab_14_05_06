@@ -76,10 +76,11 @@ namespace Lab_14_05_06
             // lINQQueriesToolStripMenuItem
             // 
             this.lINQQueriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.WorkersNamesOfWorkshopQueryToolStripMenuItem, this.EngineersCountWithMinWorkExpQueryToolStripMenuItem, this.AverageWorkerSalaryQueryToolStripMenuItem, this.GroupByProfessionQueryToolStripMenuItem });
-            this.lINQQueriesToolStripMenuItem.Name    = "lINQQueriesToolStripMenuItem";
-            this.lINQQueriesToolStripMenuItem.Size    = new System.Drawing.Size(96, 20);
-            this.lINQQueriesToolStripMenuItem.Text    = "LINQ запросы";
-            this.lINQQueriesToolStripMenuItem.Visible = false;
+            this.lINQQueriesToolStripMenuItem.Name    =  "lINQQueriesToolStripMenuItem";
+            this.lINQQueriesToolStripMenuItem.Size    =  new System.Drawing.Size(96, 20);
+            this.lINQQueriesToolStripMenuItem.Text    =  "LINQ запросы";
+            this.lINQQueriesToolStripMenuItem.Visible =  false;
+            this.lINQQueriesToolStripMenuItem.Click   += new System.EventHandler(this.lINQQueriesToolStripMenuItem_Click);
             // 
             // WorkersNamesOfWorkshopQueryToolStripMenuItem
             // 
@@ -112,10 +113,11 @@ namespace Lab_14_05_06
             // lINQExtensionMethodsToolStripMenuItem
             // 
             this.lINQExtensionMethodsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.WorkersNamesOfWorkshopToolStripMenuItem, this.EngineersCountWithMinWorkExpToolStripMenuItem, this.AverageWorkerSalaryToolStripMenuItem, this.GroupByProfessionToolStripMenuItem });
-            this.lINQExtensionMethodsToolStripMenuItem.Name    = "lINQExtensionMethodsToolStripMenuItem";
-            this.lINQExtensionMethodsToolStripMenuItem.Size    = new System.Drawing.Size(164, 20);
-            this.lINQExtensionMethodsToolStripMenuItem.Text    = "LINQ методы расширения";
-            this.lINQExtensionMethodsToolStripMenuItem.Visible = false;
+            this.lINQExtensionMethodsToolStripMenuItem.Name    =  "lINQExtensionMethodsToolStripMenuItem";
+            this.lINQExtensionMethodsToolStripMenuItem.Size    =  new System.Drawing.Size(164, 20);
+            this.lINQExtensionMethodsToolStripMenuItem.Text    =  "LINQ методы расширения";
+            this.lINQExtensionMethodsToolStripMenuItem.Visible =  false;
+            this.lINQExtensionMethodsToolStripMenuItem.Click   += new System.EventHandler(this.lINQExtensionMethodsToolStripMenuItem_Click);
             // 
             // WorkersNamesOfWorkshopToolStripMenuItem
             // 
@@ -148,9 +150,10 @@ namespace Lab_14_05_06
             // myNewCollectionToolStripMenuItem
             // 
             this.myNewCollectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMyNewCollectionToolStripMenuItem, this.PrintPersonsOnlyToolStripMenuItem, this.AverageEngineersAgeToolStripMenuItem, this.SortDescByAgeToolStripMenuItem });
-            this.myNewCollectionToolStripMenuItem.Name = "myNewCollectionToolStripMenuItem";
-            this.myNewCollectionToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.myNewCollectionToolStripMenuItem.Text = "MyNewCollection";
+            this.myNewCollectionToolStripMenuItem.Name  =  "myNewCollectionToolStripMenuItem";
+            this.myNewCollectionToolStripMenuItem.Size  =  new System.Drawing.Size(114, 20);
+            this.myNewCollectionToolStripMenuItem.Text  =  "MyNewCollection";
+            this.myNewCollectionToolStripMenuItem.Click += new System.EventHandler(this.myNewCollectionToolStripMenuItem_Click);
             // 
             // CreateMyNewCollectionToolStripMenuItem
             // 
