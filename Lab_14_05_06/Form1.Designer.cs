@@ -1,11 +1,13 @@
-﻿namespace Lab_14_05_06
+﻿using System.ComponentModel;
+
+namespace Lab_14_05_06
 {
     internal sealed partial class Form1
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,27 +31,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1                                    = new System.Windows.Forms.MenuStrip();
-            this.CreateMainCollectionToolStripMenuItem         = new System.Windows.Forms.ToolStripMenuItem();
-            this.WorkersNamesOfWorkshopToolStripMenuItem       = new System.Windows.Forms.ToolStripMenuItem();
-            this.EngineersCountWithMinWorkExpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AverageWorkerSalaryToolStripMenuItem          = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListBox                                       = new System.Windows.Forms.ListBox();
-            this.RequestListBox                                = new System.Windows.Forms.ListBox();
-            this.label1                                        = new System.Windows.Forms.Label();
-            this.label2                                        = new System.Windows.Forms.Label();
-            this.JournalListBox                                = new System.Windows.Forms.ListBox();
-            this.label3                                        = new System.Windows.Forms.Label();
-            this.GroupByProfessionToolStripMenuItem            = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1                                         = new System.Windows.Forms.MenuStrip();
+            this.CreateMainCollectionToolStripMenuItem              = new System.Windows.Forms.ToolStripMenuItem();
+            this.lINQQueriesToolStripMenuItem                       = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkersNamesOfWorkshopQueryToolStripMenuItem       = new System.Windows.Forms.ToolStripMenuItem();
+            this.EngineersCountWithMinWorkExpQueryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AverageWorkerSalaryQueryToolStripMenuItem          = new System.Windows.Forms.ToolStripMenuItem();
+            this.GroupByProfessionQueryToolStripMenuItem            = new System.Windows.Forms.ToolStripMenuItem();
+            this.lINQExtensionMethodsToolStripMenuItem              = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkersNamesOfWorkshopToolStripMenuItem            = new System.Windows.Forms.ToolStripMenuItem();
+            this.EngineersCountWithMinWorkExpToolStripMenuItem      = new System.Windows.Forms.ToolStripMenuItem();
+            this.AverageWorkerSalaryToolStripMenuItem               = new System.Windows.Forms.ToolStripMenuItem();
+            this.GroupByProfessionToolStripMenuItem                 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListBox                                            = new System.Windows.Forms.ListBox();
+            this.RequestListBox                                     = new System.Windows.Forms.ListBox();
+            this.label1                                             = new System.Windows.Forms.Label();
+            this.label2                                             = new System.Windows.Forms.Label();
+            this.JournalListBox                                     = new System.Windows.Forms.ListBox();
+            this.label3                                             = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.WorkersNamesOfWorkshopToolStripMenuItem, this.EngineersCountWithMinWorkExpToolStripMenuItem, this.AverageWorkerSalaryToolStripMenuItem, this.GroupByProfessionToolStripMenuItem });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.CreateMainCollectionToolStripMenuItem, this.lINQQueriesToolStripMenuItem, this.lINQExtensionMethodsToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name     = "menuStrip1";
-            this.menuStrip1.Size     = new System.Drawing.Size(1151, 24);
+            this.menuStrip1.Size     = new System.Drawing.Size(1003, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text     = "menuStrip1";
             // 
@@ -60,26 +68,73 @@
             this.CreateMainCollectionToolStripMenuItem.Text  =  "Создать коллекцию";
             this.CreateMainCollectionToolStripMenuItem.Click += new System.EventHandler(this.CreateMainCollectionToolStripMenuItem_Click);
             // 
+            // lINQQueriesToolStripMenuItem
+            // 
+            this.lINQQueriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.WorkersNamesOfWorkshopQueryToolStripMenuItem, this.EngineersCountWithMinWorkExpQueryToolStripMenuItem, this.AverageWorkerSalaryQueryToolStripMenuItem, this.GroupByProfessionQueryToolStripMenuItem });
+            this.lINQQueriesToolStripMenuItem.Name = "lINQQueriesToolStripMenuItem";
+            this.lINQQueriesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.lINQQueriesToolStripMenuItem.Text = "LINQ запросы";
+            // 
+            // WorkersNamesOfWorkshopQueryToolStripMenuItem
+            // 
+            this.WorkersNamesOfWorkshopQueryToolStripMenuItem.Name  =  "WorkersNamesOfWorkshopQueryToolStripMenuItem";
+            this.WorkersNamesOfWorkshopQueryToolStripMenuItem.Size  =  new System.Drawing.Size(275, 22);
+            this.WorkersNamesOfWorkshopQueryToolStripMenuItem.Text  =  "Имена рабочих заданного цеха";
+            this.WorkersNamesOfWorkshopQueryToolStripMenuItem.Click += new System.EventHandler(this.WorkersNamesOfWorkshopQueryToolStripMenuItem_Click);
+            // 
+            // EngineersCountWithMinWorkExpQueryToolStripMenuItem
+            // 
+            this.EngineersCountWithMinWorkExpQueryToolStripMenuItem.Name  =  "EngineersCountWithMinWorkExpQueryToolStripMenuItem";
+            this.EngineersCountWithMinWorkExpQueryToolStripMenuItem.Size  =  new System.Drawing.Size(275, 22);
+            this.EngineersCountWithMinWorkExpQueryToolStripMenuItem.Text  =  "Количество инженеров со стажем";
+            this.EngineersCountWithMinWorkExpQueryToolStripMenuItem.Click += new System.EventHandler(this.EngineersCountWithMinWorkExpQueryToolStripMenuItem_Click);
+            // 
+            // AverageWorkerSalaryQueryToolStripMenuItem
+            // 
+            this.AverageWorkerSalaryQueryToolStripMenuItem.Name = "AverageWorkerSalaryQueryToolStripMenuItem";
+            this.AverageWorkerSalaryQueryToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.AverageWorkerSalaryQueryToolStripMenuItem.Text = "Средняя зарплата всех рабочих";
+            // 
+            // GroupByProfessionQueryToolStripMenuItem
+            // 
+            this.GroupByProfessionQueryToolStripMenuItem.Name = "GroupByProfessionQueryToolStripMenuItem";
+            this.GroupByProfessionQueryToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.GroupByProfessionQueryToolStripMenuItem.Text = "Сгруппировать всех по профессиям";
+            // 
+            // lINQExtensionMethodsToolStripMenuItem
+            // 
+            this.lINQExtensionMethodsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.WorkersNamesOfWorkshopToolStripMenuItem, this.EngineersCountWithMinWorkExpToolStripMenuItem, this.AverageWorkerSalaryToolStripMenuItem, this.GroupByProfessionToolStripMenuItem });
+            this.lINQExtensionMethodsToolStripMenuItem.Name = "lINQExtensionMethodsToolStripMenuItem";
+            this.lINQExtensionMethodsToolStripMenuItem.Size = new System.Drawing.Size(164, 20);
+            this.lINQExtensionMethodsToolStripMenuItem.Text = "LINQ методы расширения";
+            // 
             // WorkersNamesOfWorkshopToolStripMenuItem
             // 
             this.WorkersNamesOfWorkshopToolStripMenuItem.Name  =  "WorkersNamesOfWorkshopToolStripMenuItem";
-            this.WorkersNamesOfWorkshopToolStripMenuItem.Size  =  new System.Drawing.Size(193, 20);
+            this.WorkersNamesOfWorkshopToolStripMenuItem.Size  =  new System.Drawing.Size(267, 22);
             this.WorkersNamesOfWorkshopToolStripMenuItem.Text  =  "Имена рабочих заданного цеха";
             this.WorkersNamesOfWorkshopToolStripMenuItem.Click += new System.EventHandler(this.WorkersNamesOfWorkshopToolStripMenuItem_Click);
             // 
             // EngineersCountWithMinWorkExpToolStripMenuItem
             // 
             this.EngineersCountWithMinWorkExpToolStripMenuItem.Name  =  "EngineersCountWithMinWorkExpToolStripMenuItem";
-            this.EngineersCountWithMinWorkExpToolStripMenuItem.Size  =  new System.Drawing.Size(209, 20);
+            this.EngineersCountWithMinWorkExpToolStripMenuItem.Size  =  new System.Drawing.Size(267, 22);
             this.EngineersCountWithMinWorkExpToolStripMenuItem.Text  =  "Количество инженеров со стажем";
             this.EngineersCountWithMinWorkExpToolStripMenuItem.Click += new System.EventHandler(this.EngineersCountWithMinWorkExpToolStripMenuItem_Click);
             // 
             // AverageWorkerSalaryToolStripMenuItem
             // 
             this.AverageWorkerSalaryToolStripMenuItem.Name  =  "AverageWorkerSalaryToolStripMenuItem";
-            this.AverageWorkerSalaryToolStripMenuItem.Size  =  new System.Drawing.Size(194, 20);
+            this.AverageWorkerSalaryToolStripMenuItem.Size  =  new System.Drawing.Size(267, 22);
             this.AverageWorkerSalaryToolStripMenuItem.Text  =  "Средняя зарплата всех рабочих";
             this.AverageWorkerSalaryToolStripMenuItem.Click += new System.EventHandler(this.AverageWorkerSalaryToolStripMenuItem_Click);
+            // 
+            // GroupByProfessionToolStripMenuItem
+            // 
+            this.GroupByProfessionToolStripMenuItem.Name  =  "GroupByProfessionToolStripMenuItem";
+            this.GroupByProfessionToolStripMenuItem.Size  =  new System.Drawing.Size(267, 22);
+            this.GroupByProfessionToolStripMenuItem.Text  =  "Сгруппировать всех по профессии";
+            this.GroupByProfessionToolStripMenuItem.Click += new System.EventHandler(this.GroupByProfessionToolStripMenuItem_Click);
             // 
             // ListBox
             // 
@@ -121,7 +176,7 @@
             this.JournalListBox.HorizontalScrollbar = true;
             this.JournalListBox.Location            = new System.Drawing.Point(708, 53);
             this.JournalListBox.Name                = "JournalListBox";
-            this.JournalListBox.Size                = new System.Drawing.Size(431, 381);
+            this.JournalListBox.Size                = new System.Drawing.Size(284, 381);
             this.JournalListBox.TabIndex            = 5;
             // 
             // label3
@@ -130,20 +185,13 @@
             this.label3.Name     = "label3";
             this.label3.Size     = new System.Drawing.Size(179, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text     = "Журнал событий";
-            // 
-            // GroupByProfessionToolStripMenuItem
-            // 
-            this.GroupByProfessionToolStripMenuItem.Name  =  "GroupByProfessionToolStripMenuItem";
-            this.GroupByProfessionToolStripMenuItem.Size  =  new System.Drawing.Size(212, 20);
-            this.GroupByProfessionToolStripMenuItem.Text  =  "Сгруппировать всех по профессии";
-            this.GroupByProfessionToolStripMenuItem.Click += new System.EventHandler(this.GroupByProfessionToolStripMenuItem_Click);
+            this.label3.Text     = "События";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize          = new System.Drawing.Size(1151, 450);
+            this.ClientSize          = new System.Drawing.Size(1003, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.JournalListBox);
             this.Controls.Add(this.label2);
@@ -160,11 +208,22 @@
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ToolStripMenuItem GroupByProfessionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WorkersNamesOfWorkshopQueryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EngineersCountWithMinWorkExpQueryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AverageWorkerSalaryQueryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GroupByProfessionQueryToolStripMenuItem;
 
-        private System.Windows.Forms.ToolStripMenuItem AverageWorkerSalaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lINQQueriesToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem EngineersCountWithMinWorkExpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AverageWorkerSalaryToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem WorkersNamesOfWorkshopToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem lINQExtensionMethodsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CreateMainCollectionToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem GroupByProfessionToolStripMenuItem;
 
         private System.Windows.Forms.ListBox JournalListBox;
         private System.Windows.Forms.Label   label3;
@@ -174,12 +233,9 @@
 
         private System.Windows.Forms.ListBox RequestListBox;
 
-        private System.Windows.Forms.ToolStripMenuItem WorkersNamesOfWorkshopToolStripMenuItem;
-
         private System.Windows.Forms.ListBox ListBox;
 
-        private System.Windows.Forms.MenuStrip         menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem CreateMainCollectionToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
 
         #endregion
     }

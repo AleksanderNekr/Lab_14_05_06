@@ -45,7 +45,9 @@ namespace Lab_14_05_06
             this.JournalListBox.Items.Add("Успешно создана главная коллекция");
         }
 
-        private void WorkersNamesOfWorkshopToolStripMenuItem_Click(object sender, EventArgs e)
+        #region LINQ запросы
+
+        private void WorkersNamesOfWorkshopQueryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<Worker> workers = this.Get<Worker>();
 
@@ -60,7 +62,48 @@ namespace Lab_14_05_06
                 return;
             }
 
-            this.PrintToRequestListBox(GetWorkersNamesByNumber(workers, workshopNumber));
+            this.PrintToRequestListBox(GetWorkersNamesByNumberExt(workers, workshopNumber));
+            this.JournalListBox.Items.Add("Успешно выведены имена рабочих в цехе №" + workshopNumber);
+        }
+
+        private void EngineersCountWithMinWorkExpQueryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool ExperienceRange(object input)
+            {
+                return ((int)input > 0) && ((int)input <= 40);
+            }
+
+            int                   experience = InputForm.ReadInt("стаж, отсчитываемый от 25 лет", ExperienceRange);
+            IEnumerable<Engineer> engineers  = this.Get<Engineer>();
+            int count = (from engineer in engineers
+                         where (engineer.Age - 25) >= experience
+                         select engineer).Count();
+
+            this.PrintToRequestListBox(new List<string> { count + " инженеров в списке" });
+            this.JournalListBox.Items
+                .Add($"Успешно посчитано количество инженеров со стажем не менее {experience} лет!");
+        }
+
+        #endregion LINQ запросы
+
+        #region Методы расширения LINQ
+
+        private void WorkersNamesOfWorkshopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Worker> workers = this.GetExtension<Worker>();
+
+            bool IsCorrectNumber(object input)
+            {
+                return workers.Any(worker => worker.WorkshopNumber == (int)input);
+            }
+
+            int workshopNumber = InputForm.ReadInt("номер цеха", IsCorrectNumber);
+            if (this.GetLastMessage() == InputForm.CancelMessage)
+            {
+                return;
+            }
+
+            this.PrintToRequestListBox(GetWorkersNamesByNumberExt(workers, workshopNumber));
             this.JournalListBox.Items.Add("Успешно выведены имена рабочих в цехе №" + workshopNumber);
         }
 
@@ -72,8 +115,9 @@ namespace Lab_14_05_06
             }
 
             int                   experience = InputForm.ReadInt("стаж, отсчитываемый от 25 лет", ExperienceRange);
-            IEnumerable<Engineer> engineers  = this._factory.SelectMany(workshop => workshop).OfType<Engineer>();
+            IEnumerable<Engineer> engineers  = this.Get<Engineer>();
             int                   count      = engineers.Count(engineer => (engineer.Age - 25) >= experience);
+
             this.PrintToRequestListBox(new List<string> { count + " инженеров в списке" });
             this.JournalListBox.Items
                 .Add($"Успешно посчитано количество инженеров со стажем не менее {experience} лет!");
@@ -81,7 +125,7 @@ namespace Lab_14_05_06
 
         private void AverageWorkerSalaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            double averageSalary = this.Get<Worker>().Average(worker => worker.Salary);
+            double averageSalary = this.GetExtension<Worker>().Average(worker => worker.Salary);
             this.PrintToRequestListBox(new List<string>
                                        { Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих" });
             this.JournalListBox.Items.Add("Успешно посчитана средняя зарплата всех рабочих!");
@@ -89,10 +133,24 @@ namespace Lab_14_05_06
 
         private void GroupByProfessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IEnumerable<IGrouping<Type, Person>> group   = this.Get<Person>().GroupBy(person => person.GetType());
-            IEnumerable<Person>                  persons = group.SelectMany(pair => pair);
-            this.PrintToRequestListBox(persons);
+            this.RequestListBox.Items.Clear();
+            IEnumerable<IGrouping<Type, Person>>
+                group = this.GetExtension<Person>().GroupBy(person => person.GetType());
+            IEnumerable<IGrouping<Type, Person>> persons = group.Select(pair => pair);
+            foreach (IGrouping<Type, Person> grouping in persons)
+            {
+                List<string> personsInGroup = grouping.Select(person => person.ToString()).ToList();
+                this.RequestListBox.Items.Add(grouping.Key.Name);
+                foreach (string personInfo in personsInGroup)
+                {
+                    this.RequestListBox.Items.Add("  " + personInfo);
+                }
+            }
+
+            this.JournalListBox.Items.Add("Успешно выведены группы по профессиям");
         }
+
+        #endregion Методы расширения LINQ
 
         #region Дополнительные методы
 
@@ -106,19 +164,34 @@ namespace Lab_14_05_06
             this.JournalListBox.Items.Add(args.Message);
         }
 
-        private List<TProfession> Get<TProfession>() where TProfession : Person
+        private List<T> GetExtension<T>() where T : Person
         {
-            IEnumerable<TProfession> people = this._factory
-                                                  .SelectMany(workshop => workshop)
-                                                  .OfType<TProfession>();
+            IEnumerable<T> people = this._factory
+                                        .SelectMany(workshop => workshop)
+                                        .OfType<T>();
 
             return people.ToList();
         }
 
-        private static IEnumerable<string> GetWorkersNamesByNumber(IEnumerable<Worker> workers, int workshopNumber)
+        private List<T> Get<T>() where T : Person
+        {
+            IEnumerable<T> people = from workshop in this._factory
+                                    from person in workshop
+                                    where person is T select person as T;
+            return people.ToList();
+        }
+
+        private static IEnumerable<string> GetWorkersNamesByNumberExt(IEnumerable<Worker> workers, int workshopNumber)
         {
             return workers.Where(worker => worker.WorkshopNumber == workshopNumber)
                           .Select(worker => worker.FullName);
+        }
+
+        private static IEnumerable<string> GetWorkersNamesByNumber(IEnumerable<Worker> workers, int workshopNumber)
+        {
+            return from worker in workers
+                   where worker.WorkshopNumber == workshopNumber
+                   select worker.FullName;
         }
 
         private void PrintToRequestListBox<T>(IEnumerable<T> collection)
