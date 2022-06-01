@@ -84,6 +84,35 @@ namespace Lab_14_05_06
                 .Add($"Успешно посчитано количество инженеров со стажем не менее {experience} лет!");
         }
 
+        private void AverageWorkerSalaryQueryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Worker> workers = this.Get<Worker>();
+            double averageSalary = (double)(from worker in workers
+                                            select worker.Salary).Sum()
+                                 / workers.Count;
+            this.PrintToRequestListBox(new List<string>
+                                       { Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих" });
+            this.JournalListBox.Items.Add("Успешно посчитана средняя зарплата всех рабочих!");
+        }
+
+        private void GroupByProfessionQueryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.RequestListBox.Items.Clear();
+            IEnumerable<IGrouping<Type, Person>> personsGroup = from person in this.Get<Person>()
+                                                                group person by person.GetType();
+            foreach (IGrouping<Type, Person> pair in personsGroup)
+            {
+                IEnumerable<string> personsInGroup = from person in pair select person.ToString();
+                this.RequestListBox.Items.Add(pair.Key.Name);
+                foreach (string personInfo in personsInGroup)
+                {
+                    this.RequestListBox.Items.Add("  " + personInfo);
+                }
+            }
+
+            this.JournalListBox.Items.Add("Успешно выведены группы по типу людей");
+        }
+
         #endregion LINQ запросы
 
         #region Методы расширения LINQ
@@ -136,11 +165,10 @@ namespace Lab_14_05_06
             this.RequestListBox.Items.Clear();
             IEnumerable<IGrouping<Type, Person>>
                 group = this.GetExtension<Person>().GroupBy(person => person.GetType());
-            IEnumerable<IGrouping<Type, Person>> persons = group.Select(pair => pair);
-            foreach (IGrouping<Type, Person> grouping in persons)
+            foreach (IGrouping<Type, Person> pair in group)
             {
-                List<string> personsInGroup = grouping.Select(person => person.ToString()).ToList();
-                this.RequestListBox.Items.Add(grouping.Key.Name);
+                IEnumerable<string> personsInGroup = pair.Select(person => person.ToString());
+                this.RequestListBox.Items.Add(pair.Key.Name);
                 foreach (string personInfo in personsInGroup)
                 {
                     this.RequestListBox.Items.Add("  " + personInfo);

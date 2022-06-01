@@ -91,15 +91,17 @@ namespace Lab_14_05_06
             // 
             // AverageWorkerSalaryQueryToolStripMenuItem
             // 
-            this.AverageWorkerSalaryQueryToolStripMenuItem.Name = "AverageWorkerSalaryQueryToolStripMenuItem";
-            this.AverageWorkerSalaryQueryToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
-            this.AverageWorkerSalaryQueryToolStripMenuItem.Text = "Средняя зарплата всех рабочих";
+            this.AverageWorkerSalaryQueryToolStripMenuItem.Name  =  "AverageWorkerSalaryQueryToolStripMenuItem";
+            this.AverageWorkerSalaryQueryToolStripMenuItem.Size  =  new System.Drawing.Size(275, 22);
+            this.AverageWorkerSalaryQueryToolStripMenuItem.Text  =  "Средняя зарплата всех рабочих";
+            this.AverageWorkerSalaryQueryToolStripMenuItem.Click += new System.EventHandler(this.AverageWorkerSalaryQueryToolStripMenuItem_Click);
             // 
             // GroupByProfessionQueryToolStripMenuItem
             // 
-            this.GroupByProfessionQueryToolStripMenuItem.Name = "GroupByProfessionQueryToolStripMenuItem";
-            this.GroupByProfessionQueryToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
-            this.GroupByProfessionQueryToolStripMenuItem.Text = "Сгруппировать всех по профессиям";
+            this.GroupByProfessionQueryToolStripMenuItem.Name  =  "GroupByProfessionQueryToolStripMenuItem";
+            this.GroupByProfessionQueryToolStripMenuItem.Size  =  new System.Drawing.Size(275, 22);
+            this.GroupByProfessionQueryToolStripMenuItem.Text  =  "Сгруппировать всех по профессиям";
+            this.GroupByProfessionQueryToolStripMenuItem.Click += new System.EventHandler(this.GroupByProfessionQueryToolStripMenuItem_Click);
             // 
             // lINQExtensionMethodsToolStripMenuItem
             // 
