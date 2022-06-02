@@ -17,7 +17,7 @@ namespace Lab_14_05_06
         internal Form1()
         {
             this.InitializeComponent();
-            InputForm.GetMessage += this.AddToJournal_GetMessage;
+            InputForm.GetMessage += this.UpdateJournal_GetMessage;
         }
 
         private void CreateMainCollectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -29,6 +29,8 @@ namespace Lab_14_05_06
                 for (var personIndex = 0; personIndex < PeopleCount; personIndex++)
                 {
                     var person = Person.GetRandomPerson();
+
+                    // Для рабочих изменяем номер цеха в соответствии с коллекцией.
                     if (person is Worker worker)
                     {
                         worker.WorkshopNumber = workshopIndex + 1;
@@ -65,7 +67,7 @@ namespace Lab_14_05_06
                 return;
             }
 
-            this.PrintToRequestListBox(GetWorkersNamesByNumberExt(workers, workshopNumber));
+            this.PrintToRequestListBox(GetWorkersNamesByNumber(workers, workshopNumber));
             this.JournalListBox.Items.Add("Успешно выведены имена рабочих в цехе №" + workshopNumber);
         }
 
@@ -83,8 +85,8 @@ namespace Lab_14_05_06
                          select engineer).Count();
 
             this.PrintToRequestListBox(new List<string> { count + " инженеров в списке" });
-            this.JournalListBox.Items
-                .Add($"Успешно посчитано количество инженеров со стажем не менее {experience} лет!");
+            this.JournalListBox.Items.Add($"Успешно посчитано "
+                                        + $"количество инженеров со стажем не менее {experience} лет!");
         }
 
         private void AverageWorkerSalaryQueryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,7 +96,9 @@ namespace Lab_14_05_06
                                             select worker.Salary).Sum()
                                  / workers.Count;
             this.PrintToRequestListBox(new List<string>
-                                       { Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих" });
+                                       {
+                                           Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих"
+                                       });
             this.JournalListBox.Items.Add("Успешно посчитана средняя зарплата всех рабочих!");
         }
 
@@ -106,6 +110,8 @@ namespace Lab_14_05_06
             foreach (IGrouping<Type, Person> pair in personsGroup)
             {
                 IEnumerable<string> personsInGroup = from person in pair select person.ToString();
+
+                // Заголовок группы.
                 this.RequestListBox.Items.Add(pair.Key.Name);
                 foreach (string personInfo in personsInGroup)
                 {
@@ -151,15 +157,17 @@ namespace Lab_14_05_06
             int                   count      = engineers.Count(engineer => (engineer.Age - 25) >= experience);
 
             this.PrintToRequestListBox(new List<string> { count + " инженеров в списке" });
-            this.JournalListBox.Items
-                .Add($"Успешно посчитано количество инженеров со стажем не менее {experience} лет!");
+            this.JournalListBox.Items.Add($"Успешно посчитано количество"
+                                        + $" инженеров со стажем не менее {experience} лет!");
         }
 
         private void AverageWorkerSalaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             double averageSalary = this.GetExtension<Worker>().Average(worker => worker.Salary);
             this.PrintToRequestListBox(new List<string>
-                                       { Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих" });
+                                       {
+                                           Math.Round(averageSalary, 2) + " – средняя зарплата всех рабочих"
+                                       });
             this.JournalListBox.Items.Add("Успешно посчитана средняя зарплата всех рабочих!");
         }
 
@@ -171,6 +179,8 @@ namespace Lab_14_05_06
             foreach (IGrouping<Type, Person> pair in group)
             {
                 IEnumerable<string> personsInGroup = pair.Select(person => person.ToString());
+
+                // Заголовок группы.
                 this.RequestListBox.Items.Add(pair.Key.Name);
                 foreach (string personInfo in personsInGroup)
                 {
@@ -190,7 +200,7 @@ namespace Lab_14_05_06
             return (string)this.JournalListBox.Items[this.JournalListBox.Items.Count - 1];
         }
 
-        private void AddToJournal_GetMessage(object sender, ResultMessageEventArgs args)
+        private void UpdateJournal_GetMessage(object sender, ResultMessageEventArgs args)
         {
             this.JournalListBox.Items.Add(args.Message);
         }
@@ -311,8 +321,8 @@ namespace Lab_14_05_06
             }
 
             List<KeyValuePair<int, Person>> sortedPairs = this._myNewHashTable.SortDescending(Comparison);
-            this.JournalListBox.Items
-                .Add("Успешно отсортирована коллекция MyNewHashTable по возрасту в порядке убывания возраста");
+            this.JournalListBox.Items.Add("Успешно отсортирована коллекция MyNewHashTable"
+                                        + " в порядке убывания возраста");
             this.ListBox.Items.Clear();
             sortedPairs.ForEach(pair => this.ListBox.Items.Add(pair.Value));
         }
