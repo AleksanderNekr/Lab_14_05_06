@@ -10,9 +10,11 @@ namespace Lab_14_05_06
 {
     internal sealed partial class Form1 : Form
     {
-        private       Queue<List<Person>> _factory       = new Queue<List<Person>>();
-        private const int                 WorkshopsCount = 10;
-        private const int                 PeopleCount    = 5;
+        // Завод (очередь), состоящий из цехов.
+        private Queue<List<Person>> _factory = new Queue<List<Person>>();
+
+        private const int WorkshopsCount = 10;
+        private const int PeopleCount    = 5;
 
         internal Form1()
         {
@@ -78,8 +80,9 @@ namespace Lab_14_05_06
                 return ((int)input > 0) && ((int)input <= 40);
             }
 
-            int                   experience = InputForm.ReadInt("стаж, отсчитываемый от 25 лет", ExperienceRange);
-            IEnumerable<Engineer> engineers  = this.Get<Engineer>();
+            int experience = InputForm.ReadInt("минимальный стаж,"
+                                             + " отсчитываемый от 25 лет", ExperienceRange);
+            IEnumerable<Engineer> engineers = this.Get<Engineer>();
             int count = (from engineer in engineers
                          where (engineer.Age - 25) >= experience
                          select engineer).Count();
@@ -152,9 +155,10 @@ namespace Lab_14_05_06
                 return ((int)input > 0) && ((int)input <= 40);
             }
 
-            int                   experience = InputForm.ReadInt("стаж, отсчитываемый от 25 лет", ExperienceRange);
-            IEnumerable<Engineer> engineers  = this.Get<Engineer>();
-            int                   count      = engineers.Count(engineer => (engineer.Age - 25) >= experience);
+            int experience = InputForm.ReadInt("минимальный стаж,"
+                                             + " отсчитываемый от 25 лет", ExperienceRange);
+            IEnumerable<Engineer> engineers = this.Get<Engineer>();
+            int                   count     = engineers.Count(engineer => (engineer.Age - 25) >= experience);
 
             this.PrintToRequestListBox(new List<string> { count + " инженеров в списке" });
             this.JournalListBox.Items.Add($"Успешно посчитано количество"
@@ -324,6 +328,8 @@ namespace Lab_14_05_06
             this.JournalListBox.Items.Add("Успешно отсортирована коллекция MyNewHashTable"
                                         + " в порядке убывания возраста");
             this.ListBox.Items.Clear();
+
+            // Вывод в список.
             sortedPairs.ForEach(pair => this.ListBox.Items.Add(pair.Value));
         }
 

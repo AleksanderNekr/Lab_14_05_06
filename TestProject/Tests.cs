@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Lab_13_15_05;
 using NUnit.Framework;
-using static Lab_14_05_06.Program;
 
 namespace TestProject
 {
