@@ -1,8 +1,14 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Caleks_005COneDrive_0020_002D_0020_041D_0418_0423_0020_0412_044B_0441_0448_0430_044F_0020_0448_043A_043E_043B_0430_0020_044D_043A_043E_043D_043E_043C_0438_043A_0438_005C_0414_043E_043A_0443_043C_0435_043D_0442_044B_005C_0423_0447_0435_0431_0430_005CC_0023_0020_041F_0440_043E_0433_0430_005CNUnit_002EFramework_002D3_002E13_002E3_005Cbin_005Cnet45_005Cnunit_002Eframework_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Caleks_005CRiderProjects_005CInputMethodsForm_005Cbin_005CDebug_005CInputMethodsForm_002Eexe/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Caleks_005CRiderProjects_005CLab_005F13_005F15_005F05_005CLab_005F13_005F15_005F05_005Cbin_005CDebug_005CLab_005F13_005F15_005F05_002Eexe/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Caleks_005CRiderProjects_005CWorkersLib_005Cbin_005CDebug_005CWorkersLib_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\aleks\RiderProjects\InputMethodsForm\bin\Debug\InputMethodsForm.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\aleks\AppData\Local\Temp\JetBrains\Rider\vAny\CoverageData\_Lab_14_05_06.-1929377285\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=45789f8a_002D33b5_002D41d0_002Daea0_002D0e4991b2c863/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
 	</wpf:ResourceDictionary>

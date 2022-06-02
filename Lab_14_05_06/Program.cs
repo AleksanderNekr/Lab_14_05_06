@@ -6,7 +6,7 @@ using Lab_13_15_05;
 
 namespace Lab_14_05_06
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         ///     The main entry point for the application.
@@ -27,7 +27,7 @@ namespace Lab_14_05_06
         /// <typeparam name="TKey">Тип ключа.</typeparam>
         /// <typeparam name="TValue">Тип значения.</typeparam>
         /// <returns>Отфильтрованная таблица.</returns>
-        public static MyNewHashTable<TKey, TValue> Where<TKey, TValue>(this MyNewHashTable<TKey, TValue> table,
+        public static MyNewHashTable<TKey, TValue> Filter<TKey, TValue>(this MyNewHashTable<TKey, TValue> table,
                                                                        Predicate<KeyValuePair<TKey, TValue>> predicate)
         {
             var newTable = new MyNewHashTable<TKey, TValue>();

@@ -293,7 +293,7 @@ namespace Lab_14_05_06
         private void PrintPersonsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.RequestListBox.Items.Clear();
-            MyNewHashTable<int, Person> persons = this._myNewHashTable.Where(pair => pair.Value.IsPersonOnly());
+            MyNewHashTable<int, Person> persons = this._myNewHashTable.Filter(pair => pair.Value.IsPersonOnly());
             foreach (KeyValuePair<int, Person> pair in persons)
             {
                 this.RequestListBox.Items.Add(pair.Value);
@@ -306,7 +306,7 @@ namespace Lab_14_05_06
         {
             this.RequestListBox.Items.Clear();
             double averageAge = this._myNewHashTable
-                                    .Where(pair => pair.Value is Engineer)
+                                    .Filter(pair => pair.Value is Engineer)
                                     .Average(pair => pair.Value.Age);
             this.RequestListBox.Items.Add(Math.Round(averageAge, 2) + " – средний возраст всех инженеров");
             this.JournalListBox.Items.Add("Успешно выведен средний возраст всех инженеров");
